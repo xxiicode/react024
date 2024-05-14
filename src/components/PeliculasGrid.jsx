@@ -1,12 +1,32 @@
+import { PeliculasCard } from './PeliculasCard'
+import { get } from '../utils/conexionAPI'
+import { useState, useEffect } from 'react'
 
-import {PeliculasCard} from './PeliculasCard'
+
 
 export const PeliculasGrid = () => {
 
-    return(
+    const [peliculas, setPeliculas] = useState([])
+
+    useEffect(() => {
+        get('/discover/movie').then((data => {
+            console.log(data.results)
+            setPeliculas(data.results)
+        }))
+    }, [])
+    return (
+        //mapear 
         <>
-        <h1>Grilla de peliculas</h1>
-        <PeliculasCard/>
+
+            <h2>Grilla de peliculas🐍</h2>
+
+            <ul className='peliculasGrid'>
+                {peliculas.map((pelicula) => (<PeliculasCard key='pelicula.id' peliculaMap={pelicula} />)
+                )}
+
+            </ul>
         </>
     )
 }
+
+/* genre/movie/list */

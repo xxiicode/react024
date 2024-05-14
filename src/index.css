@@ -6,11 +6,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -18,21 +13,20 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
 }
 
 button {
@@ -46,9 +40,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -59,10 +55,81 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* PROPIO */
+
+.align-center{
+  text-align: center;
+  margin-inline: auto;
+  display: block;
+}
+#root,
+body,
+html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.peliculasGrid {
+  padding: 30px;
+
+  list-style-type: none;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, 230px);
+  gap: 30px;
+}
+
+.peliculasCard {
+
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+
+  &>.links {
+    text-decoration: underline rgba(193, 193, 193, 0.471) dashed 2px;
+    color: white;
+    text-underline-offset: 5px;
+    transition: transform .3s ease;
+
+    &:hover {
+      color: #646cff;
+      text-decoration-color: white;
+      transform: scale(1.05);
+
+      &>img {
+        opacity: 1;
+      }
+    }
+
+    &>img {
+      border: solid 2px rgba(193, 193, 193, 0.471);
+      border-radius: 8px;
+      width: 100%;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+      opacity: .6;
+
+
+    }
+  }
+}
+
+section.contenedorDetalle {
+  display: flex;
+  gap: 20px;
+  max-width: 800px;
+  margin-inline: auto;
 }
